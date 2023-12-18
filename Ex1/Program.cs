@@ -7,6 +7,7 @@ int[,] arr = gen2DArray(7, 8);
 print2DArray(arr);
 int row;                //Номер строки
 int col;                //Номер столбца
+bool notDone = true;
 try
 {
     Console.Write("Введите индекс строки: ");
@@ -15,10 +16,20 @@ try
     col = Convert.ToInt32(Console.ReadLine());
     Console.Write($"({row},{col})  =>  {arr[row,col]}");
 }
+catch(IndexOutOfRangeException)
+{
+    Console.WriteLine("Такого элемента нет.");
+}
+catch(FormatException)
+{
+    Console.WriteLine("Индекс - целое число.");
+}
 catch(Exception e)
 {
     Console.WriteLine(e);
 }
+
+
 
 
 
